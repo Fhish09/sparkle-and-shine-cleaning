@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <title>Request a Free Cleaning Quote | Sparkle & Shine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sparkle & Shine offers professional residential, deep, move-in, and commercial cleaning services in LaSalle and Greater Montréal. Call +1 514-232-5765 for a free quote.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h1 class="logo">Sparkle & Shine</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="quote.html" class="active">Request a Quote</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>Request a Free Quote</h2>
+  <p>Fast, professional & reliable cleaning services</p>
+</section>
+
+<section class="quote-form-section">
+
+  <form
+    id="quoteForm"
+    action="https://formspree.io/f/maqbrrpe"
+    method="POST"
+    class="quote-form"
+  >
+
+    <label>Service Needed</label>
+    <select name="Service" required>
+      <option value="">Select service</option>
+      <option>Residential Cleaning</option>
+      <option>Deep Cleaning</option>
+      <option>Move In / Move Out</option>
+      <option>Commercial Cleaning</option>
+    </select>
+
+    <label>Preferred Date</label>
+    <input type="date" name="Preferred Date" required>
+
+    <label>Full Name</label>
+    <input type="text" name="Name" required>
+
+    <label>Email Address</label>
+    <input type="email" name="Email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" name="Phone" required>
+
+    <label>Additional Details</label>
+    <textarea name="Details"></textarea>
+
+    <input type="text" name="_gotcha" style="display:none">
+    <button type="submit" class="btn" id="submitBtn">
+  Submit Request
+</button>
+
+  </form>
+
+</section>
+
+<footer>
+  <p>© 2026 Sparkle & Shine Cleaning Services</p>
+</footer>
+
+<!-- ✅ CLIENT-SIDE REDIRECT SCRIPT -->
+<script>
+  const form = document.getElementById("quoteForm");
+
+  form.addEventListener("submit", function () {
+    setTimeout(() => {
+      window.location.href = "thank-you.html";
+    }, 1200);
+  });
+</script>
+<script>
+  const form = document.getElementById("quoteForm");
+  const btn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", function () {
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+    
+    setTimeout(() => {
+      window.location.href = "thank-you.html";
+    }, 1200);
+  });
+</script>
+
+</body>
+</html>

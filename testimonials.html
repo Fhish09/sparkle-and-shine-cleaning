@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews | Sparkle & Shine Cleaning Services</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Sparkle & Shine offers professional residential, deep, move-in, and commercial cleaning services in LaSalle and Greater Montréal. Call +1 514-232-5765 for a free quote.">
+</head>
+<body>
+
+<header class="navbar">
+  <h1 class="logo">Sparkle & Shine</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="testimonials.html" class="active">Testimonials</a>
+    <a href="quote.html">Request a Quote</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>What Our Clients Say</h2>
+  <p>Real experiences from satisfied customers</p>
+</section>
+
+<section class="testimonials-section">
+
+  <div class="testimonial-card">
+    <img src="images/client1.jpg" alt="Client">
+    <p>
+      “Excellent cleaning service. My home is spotless. The work was done
+      professionally and thoroughly. I will definitely use them again.”
+    </p>
+    <h4>— Brendaline</h4>
+  </div>
+
+  <div class="testimonial-card">
+    <img src="images/client1.jpg" alt="Client">
+    <p>
+      “Extremely impressed with the cleaning. My home was very clean and
+      exceeded my expectations.”
+    </p>
+    <h4>— Do Santos</h4>
+  </div>
+
+  <div class="testimonial-card">
+    <img src="images/client2.jpg" alt="Client">
+    <p>
+      “Great service. My space is clean and fresh. I highly recommend them.”
+    </p>
+    <h4>— Churchill</h4>
+  </div>
+
+  <div class="testimonial-card">
+    <img src="images/client1.jpg" alt="Client">
+    <p>
+      “The attention to detail was impressive. My entire home feels renewed.
+      I’m very happy with the result.”
+    </p>
+    <h4>— Akwaji</h4>
+  </div>
+
+</section>
+
+<section class="add-testimonial">
+  <h3>Share Your Experience</h3>
+  <p>Your feedback helps us grow and serve you better.</p>
+  <a href="add-review/" class="btn gold-btn">Leave a Review</a>
+  <div id="reviewsContainer" class="testimonial-grid"></div>
+</section>
+<script type="module">
+  import { db } from "./firebase.js";
+  import {
+    collection,
+    getDocs,
+    query,
+    orderBy
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const container = document.getElementById("reviewsContainer");
+
+  const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
+  const snapshot = await getDocs(q);
+
+  snapshot.forEach(doc => {
+    const r = doc.data();
+    container.innerHTML += `
+      <div class="testimonial-card">
+        <p>“${r.review}”</p>
+        <strong>${r.name}</strong>
+        <div class="stars">${"★".repeat(r.rating)}</div>
+      </div>
+    `;
+  });
+</script>
+
+<footer>
+  <p>© 2026 Sparkle & Shine Cleaning Services</p>
+</footer>
