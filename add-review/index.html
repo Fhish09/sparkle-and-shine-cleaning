@@ -2,84 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leave a Review | Sparkle & Shine</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write a Review | Sparkle & Shine</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Sparkle & Shine</h1>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Services</a>
-        <a href="../testimonials.html">Testimonials</a>
-        <a href="../quote.html" class="btn gold-btn">Get a Free Quote</a>
-      </nav>
-    </div>
-  </header>
+<header class="navbar">
+  <div class="brand">Sparkle & Shine</div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../services.html">Services</a>
+    <a href="../testimonials.html">Testimonials</a>
+    <a href="../quote.html">Get a Free Quote</a>
+  </nav>
+</header>
 
-  <!-- ADD REVIEW SECTION -->
-  <section class="add-review-page container">
+<section class="page-section">
+  <div class="container">
+
     <h2>Share Your Experience</h2>
     <p>Your feedback helps us grow and serve you better.</p>
 
-    <form class="review-form">
-      
-      <label>
-        Your Name
-        <input type="text" name="name" required>
-      </label>
+    <form id="reviewForm" class="review-card">
 
-      <label>
-        Your Review
-        <textarea name="review" rows="5" required></textarea>
-      </label>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="name" required>
+      </div>
 
-      <label>
-        Rate Our Service
-        <div class="star-rating">
-          <input type="radio" name="rating" value="5" required> ⭐⭐⭐⭐⭐
-          <input type="radio" name="rating" value="4"> ⭐⭐⭐⭐
-          <input type="radio" name="rating" value="3"> ⭐⭐⭐
-          <input type="radio" name="rating" value="2"> ⭐⭐
-          <input type="radio" name="rating" value="1"> ⭐
+      <div class="form-group">
+        <label>Your Review</label>
+        <textarea id="review" rows="5" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Rate Our Service</label>
+        <div class="rating-stars">
+          <label><input type="radio" name="rating" value="5"> ★★★★★</label><br>
+          <label><input type="radio" name="rating" value="4"> ★★★★</label><br>
+          <label><input type="radio" name="rating" value="3"> ★★★</label><br>
+          <label><input type="radio" name="rating" value="2"> ★★</label><br>
+          <label><input type="radio" name="rating" value="1"> ★</label>
         </div>
-      </label>
+      </div>
 
-      <button type="submit" class="btn gold-btn">
-        Submit Review
-      </button>
+      <button type="submit" class="btn full-btn">Submit Review</button>
 
     </form>
-  </section>
 
-</body>
-</html>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sparkle & Shine Cleaning Services</p>
+</footer>
+
+
 <script type="module">
   import { db } from "../firebase.js";
-  import {
-    collection,
-    addDoc,
-    serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { collection, addDoc, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
   const form = document.getElementById("reviewForm");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    await addDoc(collection(db, "reviews"), {
-      name: form.name.value,
-      review: form.review.value,
-      rating: form.rating.value,
-      createdAt: serverTimestamp()
-    });
+    const name = document.getElementById("name").value.trim();
+    const review = document.getElementById("review").value.trim();
+    const rating = document.querySelector('input[name="rating"]:checked')?.value;
 
-    alert("Thank you for your review!");
-    form.reset();
+    if (!rating) {
+      alert("Please select a rating.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "reviews"), {
+        name,
+        review,
+        rating: Number(rating),
+        createdAt: serverTimestamp()
+      });
+
+      // ✅ Correct redirect (no ../ anymore)
+      window.location.href = "/thank-you.html";
+
+    } catch (error) {
+      console.error("Error submitting review:", error);
+      alert("Something went wrong. Please try again.");
+    }
   });
 </script>
+
+</body>
+</html>

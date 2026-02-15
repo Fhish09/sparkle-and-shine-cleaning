@@ -799,3 +799,57 @@ footer {
   margin-top: 50px;
 }
 
+.review-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-form input,
+.review-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.rating {
+  margin: 10px 0;
+}
+
+.rating input {
+  margin-right: 5px;
+}
+.review-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  margin-top: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card input,
+.review-card textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.rating-stars {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.full-btn {
+  width: 100%;
+  margin-top: 10px;
+}

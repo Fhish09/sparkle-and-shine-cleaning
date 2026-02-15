@@ -12,6 +12,7 @@
 
 <header class="navbar">
   <div class="brand">Sparkle & Shine</div>
+  <div id="reviewsContainer"></div>
   <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
@@ -27,23 +28,25 @@
     <p>Real experiences from satisfied customers</p>
 
     <!-- TESTIMONIAL GRID -->
-    <div class="testimonial-grid">
+    <div class="testimonial-grid" id="reviewsContainer">
 
-      <!-- STATIC TESTIMONIALS -->
-      <div class="testimonial-card">
-        <img src="images/client1.jpg" alt="Client">
-        <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
-        <h4>— Brendaline</h4>
-        <div class="stars">★★★★★</div>
-      </div>
+  <!-- static cards stay here -->
 
-      <div class="testimonial-card">
-        <img src="images/client2.jpg" alt="Client">
-        <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
-        <h4>— Churchill</h4>
-        <div class="stars">★★★★★</div>
-      </div>
+  <div class="testimonial-card">
+    <img src="images/client1.jpg" alt="Client">
+    <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
+    <h4>— Brendaline</h4>
+    <div class="stars">★★★★★</div>
+  </div>
 
+  <div class="testimonial-card">
+    <img src="images/client2.jpg" alt="Client">
+    <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
+    <h4>— Churchill</h4>
+    <div class="stars">★★★★★</div>
+  </div>
+
+</div>
       <!-- 🔥 DYNAMIC REVIEWS FROM FIREBASE WILL LOAD BELOW -->
       <div id="reviewsContainer"></div>
 
@@ -92,3 +95,32 @@
 
 </body>
 </html>
+<script type="module">
+  import { db } from "./firebase.js";
+  import { collection, query, orderBy, onSnapshot } 
+  from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const container = document.getElementById("reviewsContainer");
+
+  const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
+
+  onSnapshot(q, (snapshot) => {
+    container.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+
+      const reviewHTML = `
+        <div class="review-card">
+          <h4>${data.name}</h4>
+          <div class="stars">
+            ${"★".repeat(data.rating)}
+          </div>
+          <p>${data.review}</p>
+        </div>
+      `;
+
+      container.innerHTML += reviewHTML;
+    });
+  });
+</script>

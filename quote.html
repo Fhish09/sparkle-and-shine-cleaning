@@ -78,3 +78,39 @@
 
 </body>
 </html>
+<script type="module">
+  import { db } from "./firebase.js";
+  import { collection, addDoc, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const form = document.getElementById("quoteForm");
+
+  form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Quote sent!");
+  window.location.href = "thank-you.html";
+});
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    try {
+      await addDoc(collection(db, "quotes"), {
+        name,
+        phone,
+        service,
+        message,
+        createdAt: serverTimestamp()
+      });
+
+      // ✅ Redirect after save
+      window.location.href = "thank-you.html";
+
+    } catch (error) {
+      console.error("Error submitting quote:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
