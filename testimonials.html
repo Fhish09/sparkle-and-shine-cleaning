@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customer Reviews | Sparkle & Shine Cleaning Services</title>
+  <meta name="description" content="See real customer reviews and ratings for Sparkle & Shine Cleaning Services in Montréal.">
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Sparkle & Shine offers professional residential, deep, move-in, and commercial cleaning services in LaSalle and Greater Montréal. Call +1 514-232-5765 for a free quote.">
 </head>
+
 <body>
 
 <header class="navbar">
-  <h1 class="logo">Sparkle & Shine</h1>
+  <div class="brand">Sparkle & Shine</div>
   <nav>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
@@ -19,56 +20,50 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <h2>What Our Clients Say</h2>
-  <p>Real experiences from satisfied customers</p>
+<section class="page-section">
+  <div class="container">
+
+    <h2>What Our Clients Say</h2>
+    <p>Real experiences from satisfied customers</p>
+
+    <!-- TESTIMONIAL GRID -->
+    <div class="testimonial-grid">
+
+      <!-- STATIC TESTIMONIALS -->
+      <div class="testimonial-card">
+        <img src="images/client1.jpg" alt="Client">
+        <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
+        <h4>— Brendaline</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="images/client2.jpg" alt="Client">
+        <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
+        <h4>— Churchill</h4>
+        <div class="stars">★★★★★</div>
+      </div>
+
+      <!-- 🔥 DYNAMIC REVIEWS FROM FIREBASE WILL LOAD BELOW -->
+      <div id="reviewsContainer"></div>
+
+    </div>
+
+    <!-- BUTTON TO WRITE REVIEW -->
+    <div class="testimonial-actions">
+      <a href="add-review/index.html" class="btn">
+        Write Your Experience
+      </a>
+    </div>
+
+  </div>
 </section>
 
-<section class="testimonials-section">
+<footer>
+  <p>© 2026 Sparkle & Shine Cleaning Services</p>
+</footer>
 
-  <div class="testimonial-card">
-    <img src="images/client1.jpg" alt="Client">
-    <p>
-      “Excellent cleaning service. My home is spotless. The work was done
-      professionally and thoroughly. I will definitely use them again.”
-    </p>
-    <h4>— Brendaline</h4>
-  </div>
-
-  <div class="testimonial-card">
-    <img src="images/client1.jpg" alt="Client">
-    <p>
-      “Extremely impressed with the cleaning. My home was very clean and
-      exceeded my expectations.”
-    </p>
-    <h4>— Do Santos</h4>
-  </div>
-
-  <div class="testimonial-card">
-    <img src="images/client2.jpg" alt="Client">
-    <p>
-      “Great service. My space is clean and fresh. I highly recommend them.”
-    </p>
-    <h4>— Churchill</h4>
-  </div>
-
-  <div class="testimonial-card">
-    <img src="images/client1.jpg" alt="Client">
-    <p>
-      “The attention to detail was impressive. My entire home feels renewed.
-      I’m very happy with the result.”
-    </p>
-    <h4>— Akwaji</h4>
-  </div>
-
-</section>
-
-<section class="add-testimonial">
-  <h3>Share Your Experience</h3>
-  <p>Your feedback helps us grow and serve you better.</p>
-  <a href="add-review/" class="btn gold-btn">Leave a Review</a>
-  <div id="reviewsContainer" class="testimonial-grid"></div>
-</section>
+<!-- FIREBASE SCRIPT -->
 <script type="module">
   import { db } from "./firebase.js";
   import {
@@ -88,13 +83,12 @@
     container.innerHTML += `
       <div class="testimonial-card">
         <p>“${r.review}”</p>
-        <strong>${r.name}</strong>
+        <strong>— ${r.name}</strong>
         <div class="stars">${"★".repeat(r.rating)}</div>
       </div>
     `;
   });
 </script>
 
-<footer>
-  <p>© 2026 Sparkle & Shine Cleaning Services</p>
-</footer>
+</body>
+</html>

@@ -1,135 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Leave a Review | Sparkle & Shine</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Leave a Review | Sparkle & Shine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-  <script src="script.js"></script>
-</body>
 
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Sparkle & Shine</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../testimonials.html">Testimonials</a>
+        <a href="../quote.html" class="btn gold-btn">Get a Free Quote</a>
+      </nav>
+    </div>
+  </header>
 
-<body>
+  <!-- ADD REVIEW SECTION -->
+  <section class="add-review-page container">
+    <h2>Share Your Experience</h2>
+    <p>Your feedback helps us grow and serve you better.</p>
 
-<header class="navbar">
-  <div class="brand">Sparkle & Shine Cleaning</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="../index.html">
-    <a href="quote.html" class="btn">Get a Free Quote</a>
-  </nav>
-</header>
+    <form class="review-form">
+      
+      <label>
+        Your Name
+        <input type="text" name="name" required>
+      </label>
 
-<section class="page-hero">
-  <h2 style="text-align:center; margin-top:120px;">Leave a Review</h2>
-  <p style="text-align:center;">We value your feedback. Tell us about your experience.</p>
-</section>
+      <label>
+        Your Review
+        <textarea name="review" rows="5" required></textarea>
+      </label>
 
-<section style="padding:60px 20px;">
-  <div style="max-width:600px;margin:auto;background:#ffffff;padding:40px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.08);">
-
-    <form id="reviewForm">
-
-      <label style="font-weight:600;">Your Name</label>
-      <input type="text" required style="width:100%;padding:12px;margin:10px 0 20px;border-radius:10px;border:1px solid #ddd;">
-
-      <label style="font-weight:600;">Your Review</label>
-      <textarea rows="5" required style="width:100%;padding:12px;margin:10px 0 20px;border-radius:10px;border:1px solid #ddd;"></textarea>
-
-      <label style="font-weight:600;">Rate Our Service</label>
-      <div id="starRating" style="font-size:1.8rem;margin:10px 0 25px;cursor:pointer;">
-        <span data-value="1">★</span>
-        <span data-value="2">★</span>
-        <span data-value="3">★</span>
-        <span data-value="4">★</span>
-        <span data-value="5">★</span>
-      </div>
-
-      <button type="submit" class="btn" style="width:100%;">Submit Review</button>
-
-    </form>
-
-  </div>
-</section>
-
-<footer>© 2026 Sparkle & Shine Cleaning Services</footer>
-
-<script>
-let rating = 0;
-const stars = document.querySelectorAll("#starRating span");
-
-stars.forEach((star, index) => {
-  star.addEventListener("click", () => {
-    rating = index + 1;
-    stars.forEach(s => s.style.color = "#ccc");
-    for (let i = 0; i < rating; i++) {
-      stars[i].style.color = "#f1c27d";
-    }
-  });
-});
-</script>
-
-
-</body>
-
-<section class="add-review-page">
-  <div class="review-box">
-
-    <form id="reviewForm" class="review-form">
-
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="name" required>
-      </div>
-
-      <div class="form-group">
-        <label>Your Review</label>
-        <textarea id="review" rows="5" required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Rate Our Service</label>
-        <div class="star-rating" id="starRating">
-          <span data-value="1">★</span>
-          <span data-value="2">★</span>
-          <span data-value="3">★</span>
-          <span data-value="4">★</span>
-          <span data-value="5">★</span>
+      <label>
+        Rate Our Service
+        <div class="star-rating">
+          <input type="radio" name="rating" value="5" required> ⭐⭐⭐⭐⭐
+          <input type="radio" name="rating" value="4"> ⭐⭐⭐⭐
+          <input type="radio" name="rating" value="3"> ⭐⭐⭐
+          <input type="radio" name="rating" value="2"> ⭐⭐
+          <input type="radio" name="rating" value="1"> ⭐
         </div>
-      </div>
+      </label>
 
-      <button type="submit" class="btn full-btn">
+      <button type="submit" class="btn gold-btn">
         Submit Review
       </button>
 
     </form>
-
-  </div>
-</section>
-
-<footer>© 2026 Sparkle & Shine Cleaning Services</footer>
-
-<script>
-let rating = 0;
-const stars = document.querySelectorAll("#starRating span");
-
-stars.forEach(star => {
-  star.addEventListener("click", () => {
-    rating = star.dataset.value;
-    stars.forEach(s => s.classList.remove("active"));
-    for (let i = 0; i < rating; i++) {
-      stars[i].classList.add("active");
-    }
-  });
-});
-</script>
+  </section>
 
 </body>
 </html>
+<script type="module">
+  import { db } from "../firebase.js";
+  import {
+    collection,
+    addDoc,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const form = document.getElementById("reviewForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    await addDoc(collection(db, "reviews"), {
+      name: form.name.value,
+      review: form.review.value,
+      rating: form.rating.value,
+      createdAt: serverTimestamp()
+    });
+
+    alert("Thank you for your review!");
+    form.reset();
+  });
+</script>
