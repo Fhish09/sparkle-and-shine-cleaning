@@ -3,206 +3,322 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparkle & Shine Cleaning Services | Montréal & LaSalle</title>
-  <meta name="description" content="Sparkle & Shine offers professional residential, deep, move-in, and commercial cleaning services in LaSalle and Greater Montréal. Call +1 514-232-5765 for a free quote.">
+  <title>Sparkle & Shine | Professional Cleaning Services in Montréal</title>
+  <meta name="description" content="Premium residential and commercial cleaning services in Montréal, Laval, Longueuil and surrounding areas. Fully insured, eco-friendly, and satisfaction guaranteed.">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="brand">Sparkle & Shine</div>
-    <div class="menu-toggle" id="menu-toggle">☰</div>
-    <nav id="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="services.html">Services</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="quote.html" class="btn">Get a Quote</a>
-    </nav>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Sparkle <span>&</span> Shine</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="quote.html">Get a Quote</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+15142325765" class="nav-phone">+1 514-232-5765</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Professional Cleaning Services in LaSalle & Greater Montréal</h1>
-      <p>Reliable residential, commercial, and deep cleaning — designed around your schedule.</p>
-      <div class="hero-buttons">
-        <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
-        <a href="services.html" class="btn btn-secondary">Our Services</a>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Professional Residential & Commercial Cleaning Services in Montréal</h1>
+        <p>Trusted, fully insured cleaning experts serving Montréal, Laval, Longueuil and Southwestern Quebec. Eco-friendly products. Satisfaction guaranteed.</p>
+        <div class="hero-buttons">
+          <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+          <a href="services.html" class="btn btn-secondary">View Services</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero.jpg" alt="Professional cleaning team in Montréal">
+        <div class="hero-badge">⭐ 5.0 Rated · Fully Insured</div>
       </div>
     </div>
   </section>
 
-  <!-- Trust Section -->
-  <section class="trust-section">
-    <div class="container">
-      <h2>Why Choose Sparkle & Shine</h2>
-      <p class="section-subtitle">We are committed to delivering reliable, safe, and high-quality cleaning services you can trust.</p>
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Homes Cleaned</p>
+      </div>
+      <div class="stat-item">
+        <h3>5.0</h3>
+        <p>Average Rating</p>
+      </div>
+      <div class="stat-item">
+        <h3>12+</h3>
+        <p>Areas Served</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Satisfaction Focus</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="trust-grid">
-        <div class="trust-card">
-          <img src="images/insured.png" alt="Fully Insured">
+  <!-- Why Choose Us -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Sparkle & Shine</h2>
+        <p class="section-subtitle">We combine professionalism, care, and eco-friendly practices to deliver outstanding results every time.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
           <h3>Fully Insured</h3>
-          <p>Your property and belongings are protected at all times.</p>
+          <p>Your property and belongings are protected at all times with full insurance coverage.</p>
         </div>
-        <div class="trust-card">
-          <img src="images/trained.png" alt="Trained Staff">
+        <div class="why-card">
+          <div class="why-icon">👥</div>
           <h3>Trained Professionals</h3>
-          <p>Experienced and carefully trained cleaning specialists.</p>
+          <p>Experienced and carefully trained cleaning specialists who respect your space.</p>
         </div>
-        <div class="trust-card">
-          <img src="images/eco.png" alt="Eco Friendly">
+        <div class="why-card">
+          <div class="why-icon">🌿</div>
           <h3>Eco-Friendly Products</h3>
-          <p>Safe cleaning solutions for your home, family, and pets.</p>
+          <p>Safe, effective cleaning solutions that are gentle on your family, pets, and the planet.</p>
         </div>
-        <div class="trust-card">
-          <img src="images/guarantee.png" alt="Satisfaction Guaranteed">
+        <div class="why-card">
+          <div class="why-icon">✅</div>
           <h3>Satisfaction Guaranteed</h3>
-          <p>We don’t leave until you’re completely satisfied.</p>
+          <p>We don’t leave until you’re completely happy with the results.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="services-section">
+  <!-- Featured Services -->
+  <section class="section" style="background: var(--bg-light);">
     <div class="container">
-      <h2>Our Services</h2>
-      <p class="section-subtitle">Professional cleaning solutions tailored to your needs</p>
-
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p class="section-subtitle">Professional cleaning solutions tailored to homes and businesses across Montréal.</p>
+      </div>
       <div class="services-grid">
-        <a class="service-card" href="residential.html">
-          <img src="images/residential.jpg" alt="Residential cleaning">
-          <div class="service-info">
-            <h3>Residential Cleaning</h3>
-            <p>Careful, reliable home cleaning.</p>
+        <a href="residential.html" class="service-card">
+          <img src="images/residential.jpg" alt="House Cleaning">
+          <div class="service-body">
+            <h3>House Cleaning</h3>
+            <p>Reliable and thorough residential cleaning for a healthier home.</p>
+            <span class="service-link">Learn more →</span>
           </div>
         </a>
-
-        <a class="service-card" href="deep-cleaning.html">
-          <img src="images/deep.jpg" alt="Deep cleaning">
-          <div class="service-info">
+        <a href="deep-cleaning.html" class="service-card">
+          <img src="images/deep.jpg" alt="Deep Cleaning">
+          <div class="service-body">
             <h3>Deep Cleaning</h3>
-            <p>Detailed top-to-bottom service.</p>
+            <p>Detailed top-to-bottom service that leaves every corner spotless.</p>
+            <span class="service-link">Learn more →</span>
           </div>
         </a>
-
-        <a class="service-card" href="commercial.html">
-          <img src="images/commercial.jpg" alt="Commercial cleaning">
-          <div class="service-info">
-            <h3>Commercial Cleaning</h3>
-            <p>Offices & business spaces.</p>
+        <a href="commercial.html" class="service-card">
+          <img src="images/commercial.jpg" alt="Office Cleaning">
+          <div class="service-body">
+            <h3>Office & Commercial</h3>
+            <p>Keep your workplace clean, professional, and welcoming.</p>
+            <span class="service-link">Learn more →</span>
           </div>
         </a>
-
-        <a class="service-card" href="move-in-out.html">
-          <img src="images/move.jpg" alt="Move in and out cleaning">
-          <div class="service-info">
+        <a href="move-in-out.html" class="service-card">
+          <img src="images/move.jpg" alt="Move In Out Cleaning">
+          <div class="service-body">
             <h3>Move In / Move Out</h3>
-            <p>Stress-free transitions.</p>
+            <p>Stress-free cleaning for smooth transitions and new beginnings.</p>
+            <span class="service-link">Learn more →</span>
           </div>
         </a>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="services.html" class="btn btn-secondary">View All Services</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Preview -->
-  <section class="testimonials-preview">
+  <!-- Process -->
+  <section class="section">
     <div class="container">
-      <h2>What Our Clients Say</h2>
-      <p class="section-subtitle">Trusted by homeowners and businesses across Montréal</p>
+      <div class="section-header">
+        <h2>Our Cleaning Process</h2>
+        <p class="section-subtitle">Simple, transparent, and designed around your schedule.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <h3>Book Online</h3>
+          <p>Request a free quote in under 2 minutes.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <h3>We Confirm</h3>
+          <p>Our team contacts you to confirm details and timing.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <h3>We Clean</h3>
+          <p>Trained professionals arrive and deliver exceptional results.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">4</div>
+          <h3>You Relax</h3>
+          <p>Enjoy your clean space with our satisfaction guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p class="section-subtitle">Trusted by homeowners and businesses across Greater Montréal.</p>
+      </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
-          <h4>— Brendaline</h4>
+          <div class="testimonial-author">Brendaline</div>
+          <div class="testimonial-location">Montréal</div>
         </div>
-
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p>“Extremely impressed with the cleaning. My home was very clean! Exceeded my expectations.”</p>
-          <h4>— Do Santos</h4>
+          <div class="testimonial-author">Do Santos</div>
+          <div class="testimonial-location">LaSalle</div>
         </div>
-
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
-          <h4>— Churchill</h4>
+          <div class="testimonial-author">Churchill</div>
+          <div class="testimonial-location">Montréal</div>
         </div>
       </div>
-
-      <div class="text-center" style="margin-top: 30px;">
-        <a href="testimonials.html" class="btn btn-secondary">View All Testimonials</a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="testimonials.html" class="btn btn-secondary">View All Reviews</a>
       </div>
     </div>
   </section>
 
-  <!-- Who We Are -->
-  <section class="who-we-are">
-    <div class="container who-container">
-      <div class="who-text">
-        <h2>Who We Are</h2>
-        <p>Sparkle & Shine Cleaning Services is a professional cleaning company proudly serving LaSalle and the Greater Montréal area. We are dedicated to delivering high-quality residential and commercial cleaning services with attention to detail, reliability, and care.</p>
-        <p>Our trained and trustworthy team understands that your home and workplace are valuable to you. That’s why we follow strict cleaning standards and handle all belongings with the utmost respect and professionalism.</p>
-        <p>We are fully committed to customer satisfaction, using safe and effective cleaning products while ensuring a clean, healthy, and welcoming environment for every client.</p>
-      </div>
-      <div class="who-image">
-        <img src="images/about.jpg" alt="Sparkle and Shine professional cleaning team">
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container text-center">
-      <h2>Need a Professional Cleaning Service?</h2>
-      <p>Contact Sparkle & Shine today and receive a fast, free quote.</p>
-      <a href="quote.html" class="btn btn-primary">Request a Free Quote</a>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact-section">
+  <!-- Service Areas -->
+  <section class="section">
     <div class="container">
-      <h2>Contact Us</h2>
-      <p>153–211 Riverview, LaSalle, Montréal, Quebec, Canada</p>
-      <p><strong>Phone:</strong> <a href="tel:+15142325765">+1 514-232-5765</a></p>
+      <div class="section-header">
+        <h2>Areas We Serve</h2>
+        <p class="section-subtitle">Proudly serving Montréal and Southwestern Quebec.</p>
+      </div>
+      <div class="areas-grid">
+        <div>
+          <div class="areas-list">
+            <span>Montréal</span>
+            <span>Laval</span>
+            <span>Longueuil</span>
+            <span>Westmount</span>
+            <span>Verdun</span>
+            <span>Côte-des-Neiges</span>
+            <span>NDG</span>
+            <span>Plateau</span>
+            <span>Ville-Marie</span>
+            <span>Outremont</span>
+            <span>Saint-Laurent</span>
+            <span>Brossard</span>
+          </div>
+        </div>
+        <div class="map-card">
+          <iframe
+            src="https://www.google.com/maps?q=Montréal,Quebec&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <h3 class="map-title">Find Us in LaSalle, Montréal</h3>
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps?q=153-211%20Riverview%20LaSalle%20Montreal%20Quebec&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready for a Spotless Space?</h2>
+        <p>Get your free, no-obligation quote today. Fast response guaranteed.</p>
+        <a href="quote.html" class="btn btn-primary">Request a Free Quote</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer id="contact">
     <div class="container">
-      <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Sparkle <span>&</span> Shine</div>
+          <p style="margin-bottom: 16px; max-width: 280px;">Premium residential and commercial cleaning services across Greater Montréal.</p>
+          <p><strong>Phone:</strong> <a href="tel:+15142325765">+1 514-232-5765</a></p>
+          <p style="margin-top: 8px;">153–211 Riverview, LaSalle, Montréal, QC</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="quote.html">Get a Quote</a>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="residential.html">House Cleaning</a>
+          <a href="deep-cleaning.html">Deep Cleaning</a>
+          <a href="commercial.html">Commercial</a>
+          <a href="move-in-out.html">Move In / Out</a>
+        </div>
+        <div>
+          <h4>Business Hours</h4>
+          <p>Mon – Fri: 8:00 AM – 6:00 PM</p>
+          <p>Saturday: 9:00 AM – 4:00 PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
   <script>
+    // Sticky navbar
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
     // Mobile menu
-    const toggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("nav-links");
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
 
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("show");
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
       });
-
-      nav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("show");
-        });
-      });
-    }
+    });
   </script>
 </body>
 </html>
