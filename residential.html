@@ -3,73 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Residential Cleaning | Sparkle & Shine</title>
-  <meta name="description" content="Professional residential cleaning services in LaSalle and Greater Montréal. Sparkle & Shine keeps your home fresh, spotless, and healthy.">
+  <title>House Cleaning | Sparkle & Shine Montréal</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header class="navbar">
-  <div class="brand">Sparkle & Shine</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="quote.html">Request a Quote</a>
-  </nav>
-</header>
+  <header class="navbar scrolled" id="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Sparkle <span>&</span> Shine</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="quote.html">Get a Quote</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="page-section">
-  <div class="container">
+  <section class="section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="section-header">
+        <h2>House Cleaning</h2>
+        <p class="section-subtitle">Reliable, thorough residential cleaning for a healthier and more comfortable home.</p>
+      </div>
 
-    <h2>Residential Cleaning Service</h2>
+      <div class="areas-grid" style="margin-bottom: 50px;">
+        <div>
+          <img src="images/residential.jpg" alt="House Cleaning" style="width:100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
+        </div>
+        <div>
+          <h3 style="margin-bottom: 16px;">What’s Included</h3>
+          <ul style="color: var(--text-muted); line-height: 1.9; padding-left: 20px;">
+            <li>Dusting of all surfaces and furniture</li>
+            <li>Vacuuming and mopping floors</li>
+            <li>Kitchen cleaning (counters, sink, exterior appliances)</li>
+            <li>Bathroom cleaning and sanitizing</li>
+            <li>Bedroom and living area tidying</li>
+            <li>Trash removal</li>
+            <li>Attention to high-touch areas</li>
+          </ul>
+          <div style="margin-top: 28px;">
+            <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+          </div>
+        </div>
+      </div>
 
-    <p>
-      Our residential cleaning service keeps your home spotless,
-      comfortable, and welcoming. We tailor our cleaning to fit your
-      needs and schedule.
-    </p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🏠</div>
+          <h3>Regular or One-Time</h3>
+          <p>Weekly, bi-weekly, monthly, or one-time cleaning available.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🌿</div>
+          <h3>Eco-Friendly</h3>
+          <p>Safe products that are gentle on your family and pets.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">✅</div>
+          <h3>Satisfaction Guaranteed</h3>
+          <p>We make sure you’re happy with every visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <ul>
-      <li>Kitchen cleaning & sanitizing</li>
-      <li>Bathroom cleaning & disinfecting</li>
-      <li>Dusting & vacuuming</li>
-      <li>Mopping floors</li>
-      <li>Bedroom & living area cleaning</li>
-    </ul>
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready for a Cleaner Home?</h2>
+        <p>Request your free quote today.</p>
+        <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
 
-    <a href="quote.html" class="btn">Book Residential Cleaning</a>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Sparkle <span>&</span> Shine</div>
+          <p>Premium cleaning services across Greater Montréal.</p>
+          <p style="margin-top: 12px;"><strong>Phone:</strong> <a href="tel:+15142325765">+1 514-232-5765</a></p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="quote.html">Get a Quote</a>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="residential.html">House Cleaning</a>
+          <a href="deep-cleaning.html">Deep Cleaning</a>
+          <a href="commercial.html">Commercial</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>LaSalle, Montréal, QC</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Sparkle & Shine Cleaning Services</p>
-</footer>
-<div class="mobile-nav">
-  <a href="index.html" class="nav-item">
-    <span>Home</span>
-  </a>
-
-  <a href="services.html" class="nav-item">
-    <span>Services</span>
-  </a>
-
-  <a href="request-quote.html" class="nav-item center-btn">
-    <span>Quote</span>
-  </a>
-
-  <a href="testimonials.html" class="nav-item">
-    <span>Reviews</span>
-  </a>
-</div>
-<div class="mobile-nav">
-  <a href="testimonials.html">Reviews</a>
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</div>
-
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
 </body>
 </html>
