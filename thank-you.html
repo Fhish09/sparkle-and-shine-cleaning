@@ -3,62 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You | Sparkle & Shine</title>
+  <title>Thank You | Sparkle & Shine Cleaning</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .thank-you-box {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 28px;
+    }
+  </style>
 </head>
 <body>
 
-<header class="navbar">
-  <div class="brand">Sparkle & Shine</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="quote.html">Request a Quote</a>
-  </nav>
-</header>
+  <header class="navbar scrolled">
+    <div class="container nav-inner">
+      <div class="brand">Sparkle <span>&</span> Shine</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="quote.html">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="thank-you-section">
-  <div class="thank-you-box">
-    <h2>Thank You for Your Feedback ✨</h2>
+  <section class="section" style="padding-top: 160px; min-height: 80vh; background: var(--bg-light);">
+    <div class="container">
+      <div class="thank-you-box">
+        <div class="checkmark">✓</div>
+        <h2>Thank You!</h2>
+        <p style="color: var(--text-muted); margin: 16px 0 32px; font-size: 1.1rem;">
+          Your quote request has been received. Our team will contact you shortly.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-primary">Return Home</a>
+          <a href="tel:+15142325765" class="btn btn-secondary">Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <p>
-      We truly appreciate you taking the time to share your experience.
-      Your review helps us continue delivering excellent service.
-    </p>
-
-    <a href="testimonials.html" class="btn">
-      Back to Testimonials
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Sparkle & Shine Cleaning Services</p>
-</footer>
-<div class="mobile-nav">
-  <a href="index.html" class="nav-item">
-    <span>Home</span>
-  </a>
-
-  <a href="services.html" class="nav-item">
-    <span>Services</span>
-  </a>
-
-  <a href="request-quote.html" class="nav-item center-btn">
-    <span>Quote</span>
-  </a>
-
-  <a href="testimonials.html" class="nav-item">
-    <span>Reviews</span>
-  </a>
-</div>
-<div class="mobile-nav">
-  <a href="testimonials.html">Reviews</a>
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</div>
-
+  <footer>
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding-top: 0;">
+        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

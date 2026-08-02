@@ -3,147 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Reviews | Sparkle & Shine Cleaning Services</title>
-  <meta name="description" content="See real customer reviews and ratings for Sparkle & Shine Cleaning Services in Montréal.">
+  <title>Testimonials | Sparkle & Shine Cleaning</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<header class="navbar">
-  <div class="brand">Sparkle & Shine</div>
-  <div id="reviewsContainer"></div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="testimonials.html" class="active">Testimonials</a>
-    <a href="quote.html">Request a Quote</a>
-  </nav>
-</header>
-
-<section class="page-section">
-  <div class="container">
-
-    <h2>What Our Clients Say</h2>
-    <p>Real experiences from satisfied customers</p>
-
-    <!-- TESTIMONIAL GRID -->
-    <div class="testimonial-grid" id="reviewsContainer">
-
-  <!-- static cards stay here -->
-
-  <div class="testimonial-card">
-    <img src="images/client1.jpg" alt="Client">
-    <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
-    <h4>— Brenda</h4>
-    <div class="stars">★★★★★</div>
-  </div>
-
-  <div class="testimonial-card">
-    <img src="images/client2.jpg" alt="Client">
-    <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
-    <h4>— Spencer</h4>
-    <div class="stars">★★★★★</div>
-  </div>
-
-</div>
-      <!-- 🔥 DYNAMIC REVIEWS FROM FIREBASE WILL LOAD BELOW -->
-      <div id="reviewsContainer"></div>
-
+  <header class="navbar scrolled" id="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Sparkle <span>&</span> Shine</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html" class="active">Testimonials</a>
+        <a href="quote.html">Get a Quote</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- BUTTON TO WRITE REVIEW -->
-    <div class="testimonial-actions">
-      <a href="add-review/index.html" class="btn">
-        Write Your Experience
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Sparkle & Shine Cleaning Services</p>
-</footer>
-
-<!-- FIREBASE SCRIPT -->
-<script type="module">
-  import { db } from "./firebase.js";
-  import {
-    collection,
-    getDocs,
-    query,
-    orderBy
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  const container = document.getElementById("reviewsContainer");
-
-  const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
-  const snapshot = await getDocs(q);
-
-  snapshot.forEach(doc => {
-    const r = doc.data();
-    container.innerHTML += `
-      <div class="testimonial-card">
-        <p>“${r.review}”</p>
-        <strong>— ${r.name}</strong>
-        <div class="stars">${"★".repeat(r.rating)}</div>
+  <section class="section" style="padding-top: 140px;">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p class="section-subtitle">Real reviews from homeowners and businesses across Greater Montréal.</p>
       </div>
-    `;
-  });
-</script>
-<div class="mobile-nav">
-  <a href="index.html" class="nav-item">
-    <span>Home</span>
-  </a>
 
-  <a href="services.html" class="nav-item">
-    <span>Services</span>
-  </a>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Excellent cleaning service. My home is spotless. The work was done professionally and thoroughly.”</p>
+          <div class="testimonial-author">Brendaline</div>
+          <div class="testimonial-location">Montréal</div>
+        </div>
 
-  <a href="request-quote.html" class="nav-item center-btn">
-    <span>Quote</span>
-  </a>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Extremely impressed with the cleaning. My home was very clean! Exceeded my expectations.”</p>
+          <div class="testimonial-author">Do Santos</div>
+          <div class="testimonial-location">LaSalle</div>
+        </div>
 
-  <a href="testimonials.html" class="nav-item">
-    <span>Reviews</span>
-  </a>
-</div>
-<div class="mobile-nav">
-  <a href="testimonials.html">Reviews</a>
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Great service. My space is clean and fresh. I highly recommend them.”</p>
+          <div class="testimonial-author">Churchill</div>
+          <div class="testimonial-location">Montréal</div>
+        </div>
 
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Very professional team. They arrived on time and left my apartment looking brand new.”</p>
+          <div class="testimonial-author">Marie</div>
+          <div class="testimonial-location">Verdun</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Reliable and thorough. I’ve used them multiple times for my office and always happy.”</p>
+          <div class="testimonial-author">James</div>
+          <div class="testimonial-location">Downtown Montréal</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“The deep cleaning was outstanding. Every detail was taken care of. Thank you!”</p>
+          <div class="testimonial-author">Sophie</div>
+          <div class="testimonial-location">NDG</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="quote.html" class="btn btn-primary">Book Your Cleaning</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Sparkle <span>&</span> Shine</div>
+          <p>Premium cleaning services across Greater Montréal.</p>
+          <p style="margin-top: 12px;"><strong>Phone:</strong> <a href="tel:+15142325765">+1 514-232-5765</a></p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="quote.html">Get a Quote</a>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="residential.html">House Cleaning</a>
+          <a href="deep-cleaning.html">Deep Cleaning</a>
+          <a href="commercial.html">Commercial</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>LaSalle, Montréal, QC</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
 </body>
 </html>
-<script type="module">
-  import { db } from "./firebase.js";
-  import { collection, query, orderBy, onSnapshot } 
-  from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  const container = document.getElementById("reviewsContainer");
-
-  const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
-
-  onSnapshot(q, (snapshot) => {
-    container.innerHTML = "";
-
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-
-      const reviewHTML = `
-        <div class="review-card">
-          <h4>${data.name}</h4>
-          <div class="stars">
-            ${"★".repeat(data.rating)}
-          </div>
-          <p>${data.review}</p>
-        </div>
-      `;
-
-      container.innerHTML += reviewHTML;
-    });
-  });
-</script>
