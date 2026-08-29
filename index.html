@@ -26,19 +26,65 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <h1>Professional Residential & Commercial Cleaning in Dallas-Fort Worth</h1>
-        <p>Trusted, fully insured cleaning experts serving Dallas, Fort Worth, Plano, Frisco, McKinney and the entire DFW Metroplex. Eco-friendly products. Satisfaction guaranteed.</p>
-        <div class="hero-buttons">
-          <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
-          <a href="services.html" class="btn btn-secondary">View Services</a>
+  <!-- LIVE ANIMATED HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <!-- Ken Burns live photo (fallback for reduced-motion & slow connections) -->
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=85" alt="Professional cleaning in action" id="hero-fallback">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Sparkle particles -->
+    <div class="hero-particles" aria-hidden="true">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+
+    <div class="hero-content-wrap">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Dallas-Fort Worth · Fully Insured</span>
+          <h1>Professional Residential & Commercial Cleaning in Dallas-Fort Worth</h1>
+          <p>Trusted, fully insured cleaning experts serving Dallas, Fort Worth, Plano, Frisco, McKinney and the entire DFW Metroplex. Eco-friendly products. Satisfaction guaranteed.</p>
+          <div class="hero-buttons">
+            <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+            <a href="services.html" class="btn btn-secondary">View Services</a>
+          </div>
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="Professional cleaning team in action - Dallas Fort Worth">
-        <div class="hero-badge">5.0 Rated · Fully Insured</div>
+
+        <div class="hero-badges">
+          <div class="float-badge">
+            <div class="icon">5.0</div>
+            <div class="text">
+              <strong>Top Rated</strong>
+              <span>Client satisfaction</span>
+            </div>
+          </div>
+          <div class="float-badge">
+            <div class="icon">INS</div>
+            <div class="text">
+              <strong>Fully Insured</strong>
+              <span>Protected always</span>
+            </div>
+          </div>
+          <div class="float-badge">
+            <div class="icon">ECO</div>
+            <div class="text">
+              <strong>Eco-Friendly</strong>
+              <span>Safe products</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -204,7 +250,8 @@
     </div>
   </section>
 
-  <section class="section">
+  <!-- Areas + Map -->
+  <section class="section areas-section">
     <div class="container">
       <div class="section-header">
         <h2>Areas We Serve</h2>
@@ -228,7 +275,7 @@
           </div>
         </div>
         <div class="map-card">
-          <iframe src="https://www.google.com/maps?q=Dallas,Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps?q=Dallas,Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Service area map"></iframe>
         </div>
       </div>
     </div>
@@ -242,6 +289,12 @@
         <a href="quote.html" class="btn btn-primary">Request a Free Quote</a>
       </div>
     </div>
+  </section>
+
+  <!-- LARGE MAP AT BOTTOM -->
+  <section class="large-map-section">
+    <iframe class="map-full" src="https://www.google.com/maps?q=Dallas-Fort+Worth,Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dallas Fort Worth service map"></iframe>
+    <div class="map-overlay-label">📍 Serving the entire Dallas-Fort Worth Metroplex</div>
   </section>
 
   <footer id="contact">
@@ -282,16 +335,39 @@
   </footer>
 
   <script>
+    // Navbar scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    // Mobile menu
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
+
+    // Pause Ken Burns / particles when hero is out of view (performance)
+    const hero = document.getElementById('hero');
+    const heroBg = document.querySelector('.hero-bg img');
+    const particles = document.querySelector('.hero-particles');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (heroBg) heroBg.style.animationPlayState = 'running';
+            if (particles) particles.style.animationPlayState = 'running';
+          } else {
+            if (heroBg) heroBg.style.animationPlayState = 'paused';
+            if (particles) particles.style.animationPlayState = 'paused';
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(hero);
+    }
   </script>
 </body>
 </html>
