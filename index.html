@@ -3,86 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparkle & Shine | Professional Cleaning Services in Dallas-Fort Worth, TX</title>
-  <meta name="description" content="Premium residential and commercial cleaning services in Dallas, Fort Worth, Plano, Frisco, McKinney and surrounding DFW areas. Fully insured, eco-friendly, and satisfaction guaranteed.">
+  <title>Sparkle & Shine | Premium Cleaning Services in Dallas-Fort Worth, TX</title>
+  <meta name="description" content="Premium residential and commercial cleaning in Dallas, Fort Worth, Plano, Frisco and the DFW Metroplex. Fully insured, eco-friendly, satisfaction guaranteed.">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
       <div class="brand">Sparkle <span>&</span> Shine</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</div>
       <nav class="nav-links" id="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="quote.html">Get a Quote</a>
         <a href="#contact">Contact</a>
-        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Get a Quote</a>
       </nav>
     </div>
   </header>
 
-  <!-- LIVE ANIMATED HERO -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <!-- Ken Burns live photo (fallback for reduced-motion & slow connections) -->
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=85" alt="Professional cleaning in action" id="hero-fallback">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=85" alt="Professional home cleaning">
     </div>
     <div class="hero-overlay"></div>
-
-    <!-- Sparkle particles -->
     <div class="hero-particles" aria-hidden="true">
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
-      <span class="particle"></span>
+      <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+      <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+      <span class="particle"></span><span class="particle"></span>
     </div>
-
     <div class="hero-content-wrap">
       <div class="container hero-grid">
         <div class="hero-content">
           <span class="eyebrow">Dallas-Fort Worth · Fully Insured</span>
-          <h1>Professional Residential & Commercial Cleaning in Dallas-Fort Worth</h1>
-          <p>Trusted, fully insured cleaning experts serving Dallas, Fort Worth, Plano, Frisco, McKinney and the entire DFW Metroplex. Eco-friendly products. Satisfaction guaranteed.</p>
+          <h1>Premium Residential &amp; Commercial Cleaning</h1>
+          <p>Trusted cleaning experts serving Dallas, Fort Worth, Plano, Frisco, McKinney and the DFW Metroplex. Eco-friendly products. Satisfaction guaranteed.</p>
           <div class="hero-buttons">
             <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
-            <a href="services.html" class="btn btn-secondary">View Services</a>
+            <a href="services.html" class="btn btn-ghost">View Services</a>
           </div>
         </div>
-
         <div class="hero-badges">
           <div class="float-badge">
-            <div class="icon">5.0</div>
-            <div class="text">
-              <strong>Top Rated</strong>
-              <span>Client satisfaction</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
+            <div class="text"><strong>5.0 Rated</strong><span>Client satisfaction</span></div>
           </div>
           <div class="float-badge">
-            <div class="icon">INS</div>
-            <div class="text">
-              <strong>Fully Insured</strong>
-              <span>Protected always</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
+            <div class="text"><strong>Fully Insured</strong><span>Protected always</span></div>
           </div>
           <div class="float-badge">
-            <div class="icon">ECO</div>
-            <div class="text">
-              <strong>Eco-Friendly</strong>
-              <span>Safe products</span>
+            <div class="icon-svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c4-4 6-7.5 6-11a6 6 0 10-12 0c0 3.5 2 7 6 11z"/><circle cx="12" cy="11" r="2"/></svg>
             </div>
+            <div class="text"><strong>Eco-Friendly</strong><span>Safe products</span></div>
           </div>
         </div>
       </div>
@@ -91,49 +74,46 @@
 
   <section class="stats">
     <div class="container stats-grid">
-      <div class="stat-item">
-        <h3>800+</h3>
-        <p>Homes Cleaned</p>
-      </div>
-      <div class="stat-item">
-        <h3>5.0</h3>
-        <p>Average Rating</p>
-      </div>
-      <div class="stat-item">
-        <h3>15+</h3>
-        <p>Cities Served</p>
-      </div>
-      <div class="stat-item">
-        <h3>100%</h3>
-        <p>Satisfaction Focus</p>
-      </div>
+      <div class="stat-item"><h3>800+</h3><p>Homes Cleaned</p></div>
+      <div class="stat-item"><h3>5.0</h3><p>Average Rating</p></div>
+      <div class="stat-item"><h3>15+</h3><p>Cities Served</p></div>
+      <div class="stat-item"><h3>100%</h3><p>Satisfaction Focus</p></div>
     </div>
   </section>
 
+  <!-- Why Choose Us -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <h2>Why Choose Sparkle & Shine</h2>
-        <p class="section-subtitle">We combine professionalism, care, and eco-friendly practices to deliver outstanding results every time across North Texas.</p>
+      <div class="section-header reveal">
+        <h2>Why Choose Sparkle &amp; Shine</h2>
+        <p class="section-subtitle">Professionalism, care, and eco-friendly practices — delivered across North Texas.</p>
       </div>
       <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">INS</div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
           <h3>Fully Insured</h3>
-          <p>Your property and belongings are protected at all times with full liability insurance coverage.</p>
+          <p>Your property and belongings are protected at all times with full liability coverage.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">PRO</div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
           <h3>Trained Professionals</h3>
-          <p>Background-checked and carefully trained cleaning specialists who respect your space.</p>
+          <p>Background-checked specialists who respect your home and your time.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">ECO</div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c4-4 6-7.5 6-11a6 6 0 10-12 0c0 3.5 2 7 6 11z"/><circle cx="12" cy="11" r="2"/></svg>
+          </div>
           <h3>Eco-Friendly Products</h3>
-          <p>Safe, effective cleaning solutions that are gentle on your family, pets, and the planet.</p>
+          <p>Safe, effective solutions gentle on your family, pets, and the planet.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">OK</div>
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
           <h3>Satisfaction Guaranteed</h3>
           <p>We don’t leave until you’re completely happy with the results.</p>
         </div>
@@ -141,42 +121,43 @@
     </div>
   </section>
 
+  <!-- Services -->
   <section class="section" style="background: var(--bg-light);">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Our Services</h2>
-        <p class="section-subtitle">Professional cleaning solutions tailored to homes and businesses across the Dallas-Fort Worth Metroplex.</p>
+        <p class="section-subtitle">Tailored cleaning for homes and businesses across the DFW Metroplex.</p>
       </div>
       <div class="services-grid">
-        <a href="residential.html" class="service-card">
-          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80" alt="House Cleaning Dallas">
+        <a href="residential.html" class="service-card reveal">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80" alt="House Cleaning">
           <div class="service-body">
             <h3>House Cleaning</h3>
-            <p>Reliable and thorough residential cleaning for a healthier home.</p>
+            <p>Reliable, thorough residential cleaning for a healthier home.</p>
             <span class="service-link">Learn more →</span>
           </div>
         </a>
-        <a href="deep-cleaning.html" class="service-card">
-          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Deep Cleaning DFW">
+        <a href="deep-cleaning.html" class="service-card reveal">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Deep Cleaning">
           <div class="service-body">
             <h3>Deep Cleaning</h3>
-            <p>Detailed top-to-bottom service that leaves every corner spotless.</p>
+            <p>Top-to-bottom detail that leaves every corner spotless.</p>
             <span class="service-link">Learn more →</span>
           </div>
         </a>
-        <a href="commercial.html" class="service-card">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Office Cleaning Fort Worth">
+        <a href="commercial.html" class="service-card reveal">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Office Cleaning">
           <div class="service-body">
-            <h3>Office & Commercial</h3>
+            <h3>Office &amp; Commercial</h3>
             <p>Keep your workplace clean, professional, and welcoming.</p>
             <span class="service-link">Learn more →</span>
           </div>
         </a>
-        <a href="move-in-out.html" class="service-card">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80" alt="Move In Out Cleaning Plano">
+        <a href="move-in-out.html" class="service-card reveal">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80" alt="Move In Out">
           <div class="service-body">
             <h3>Move In / Move Out</h3>
-            <p>Stress-free cleaning for smooth transitions and new beginnings.</p>
+            <p>Stress-free cleaning for smooth transitions.</p>
             <span class="service-link">Learn more →</span>
           </div>
         </a>
@@ -187,61 +168,78 @@
     </div>
   </section>
 
+  <!-- Process -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Our Cleaning Process</h2>
-        <p class="section-subtitle">Simple, transparent, and designed around your busy DFW schedule.</p>
+        <p class="section-subtitle">Simple, transparent, and designed around your schedule.</p>
       </div>
       <div class="process-grid">
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-number">1</div>
-          <h3>Book Online</h3>
-          <p>Request a free quote in under 2 minutes.</p>
+          <h3>Request a Quote</h3>
+          <p>Tell us about your space online in under 2 minutes.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-number">2</div>
           <h3>We Confirm</h3>
-          <p>Our team contacts you to confirm details and timing.</p>
+          <p>Our team emails you to confirm details and timing.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-number">3</div>
           <h3>We Clean</h3>
-          <p>Trained professionals arrive and deliver exceptional results.</p>
+          <p>Trained professionals deliver exceptional results.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-number">4</div>
           <h3>You Relax</h3>
-          <p>Enjoy your clean space with our satisfaction guarantee.</p>
+          <p>Enjoy your space with our satisfaction guarantee.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Testimonials -->
   <section class="section testimonials">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>What Our Clients Say</h2>
-        <p class="section-subtitle">Trusted by homeowners and businesses across the Dallas-Fort Worth Metroplex.</p>
+        <p class="section-subtitle">Homeowners and businesses across the Dallas-Fort Worth Metroplex.</p>
       </div>
       <div class="testimonials-grid">
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
           <div class="stars">★★★★★</div>
           <p>“Excellent cleaning service. My home in Plano is spotless. The team was professional and thorough.”</p>
-          <div class="testimonial-author">Sarah M.</div>
-          <div class="testimonial-location">Plano, TX</div>
+          <div class="testimonial-footer">
+            <div class="avatar">SM</div>
+            <div>
+              <div class="testimonial-author">Sarah M.</div>
+              <div class="testimonial-location">Plano, TX</div>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
           <div class="stars">★★★★★</div>
-          <p>“Extremely impressed with the deep clean. My Fort Worth house looked brand new! Exceeded expectations.”</p>
-          <div class="testimonial-author">James R.</div>
-          <div class="testimonial-location">Fort Worth, TX</div>
+          <p>“Extremely impressed with the deep clean. My Fort Worth house looked brand new. Exceeded expectations.”</p>
+          <div class="testimonial-footer">
+            <div class="avatar">JR</div>
+            <div>
+              <div class="testimonial-author">James R.</div>
+              <div class="testimonial-location">Fort Worth, TX</div>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
           <div class="stars">★★★★★</div>
           <p>“Great service for our Frisco office. Clean, fresh, and reliable every time. Highly recommend.”</p>
-          <div class="testimonial-author">Emily T.</div>
-          <div class="testimonial-location">Frisco, TX</div>
+          <div class="testimonial-footer">
+            <div class="avatar">ET</div>
+            <div>
+              <div class="testimonial-author">Emily T.</div>
+              <div class="testimonial-location">Frisco, TX</div>
+            </div>
+          </div>
         </div>
       </div>
       <div style="text-align: center; margin-top: 40px;">
@@ -250,62 +248,71 @@
     </div>
   </section>
 
-  <!-- Areas + Map -->
+  <!-- Areas (no map) -->
   <section class="section areas-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <h2>Areas We Serve</h2>
-        <p class="section-subtitle">Proudly serving the Dallas-Fort Worth Metroplex and surrounding North Texas communities.</p>
+        <p class="section-subtitle">Proudly serving the Dallas-Fort Worth Metroplex and surrounding communities.</p>
       </div>
-      <div class="areas-grid">
-        <div>
-          <div class="areas-list">
-            <span>Dallas</span>
-            <span>Fort Worth</span>
-            <span>Plano</span>
-            <span>Frisco</span>
-            <span>McKinney</span>
-            <span>Arlington</span>
-            <span>Irving</span>
-            <span>Richardson</span>
-            <span>Garland</span>
-            <span>Carrollton</span>
-            <span>Allen</span>
-            <span>Lewisville</span>
-          </div>
-        </div>
-        <div class="map-card">
-          <iframe src="https://www.google.com/maps?q=Dallas,Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Service area map"></iframe>
-        </div>
+      <div class="areas-list reveal">
+        <span>Dallas</span>
+        <span>Fort Worth</span>
+        <span>Plano</span>
+        <span>Frisco</span>
+        <span>McKinney</span>
+        <span>Arlington</span>
+        <span>Irving</span>
+        <span>Richardson</span>
+        <span>Garland</span>
+        <span>Carrollton</span>
+        <span>Allen</span>
+        <span>Lewisville</span>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="section">
     <div class="container">
-      <div class="cta-banner">
+      <div class="cta-banner reveal">
         <h2>Ready for a Spotless Space?</h2>
-        <p>Get your free, no-obligation quote today. Fast response across DFW.</p>
-        <a href="quote.html" class="btn btn-primary">Request a Free Quote</a>
+        <p>Request your free, no-obligation quote. We’ll respond by email promptly.</p>
+        <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
       </div>
     </div>
   </section>
 
-  <!-- LARGE MAP AT BOTTOM -->
-  <section class="large-map-section">
-    <iframe class="map-full" src="https://www.google.com/maps?q=Dallas-Fort+Worth,Texas&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dallas Fort Worth service map"></iframe>
-    <div class="map-overlay-label">📍 Serving the entire Dallas-Fort Worth Metroplex</div>
+  <!-- Contact / Email -->
+  <section class="section" id="contact" style="background: var(--bg-light); padding-top: 80px;">
+    <div class="container">
+      <div class="contact-email-block reveal">
+        <h2>Get in Touch</h2>
+        <p class="section-subtitle" style="margin-bottom: 8px;">Email is the best way to reach us. We typically respond within one business day.</p>
+        <a href="mailto:sparkandshine009@gmail.com" class="email-display">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          sparkandshine009@gmail.com
+        </a>
+        <div style="margin-top: 8px;">
+          <a href="quote.html" class="btn btn-primary">Request a Quote Online</a>
+        </div>
+        <p style="margin-top: 28px; color: var(--text-muted); font-size: 0.9rem;">
+          <strong>Hours:</strong> Mon–Fri 8am–6pm · Sat 9am–4pm · Sun Closed
+        </p>
+      </div>
+    </div>
   </section>
 
-  <footer id="contact">
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Sparkle <span>&</span> Shine</div>
-          <p style="margin-bottom: 16px; max-width: 280px;">Premium residential and commercial cleaning services across the Dallas-Fort Worth Metroplex.</p>
-          <p><strong>Phone:</strong> <a href="tel:+14695550173">(469) 555-0173</a></p>
-          <p style="margin-top: 8px;"><strong>Email:</strong> <a href="mailto:sparkandshine009@gmail.com">sparkandshine009@gmail.com</a></p>
-          <p style="margin-top: 8px;">Serving DFW · Based in Plano, TX</p>
+          <p style="margin-bottom: 16px; max-width: 280px; opacity: 0.85;">Premium residential and commercial cleaning across the Dallas-Fort Worth Metroplex.</p>
+          <p style="margin-top: 8px;">
+            <a href="mailto:sparkandshine009@gmail.com" style="color: var(--primary);">sparkandshine009@gmail.com</a>
+          </p>
+          <p style="margin-top: 8px; font-size: 0.9rem;">Serving DFW · Based in Plano, TX</p>
         </div>
         <div>
           <h4>Quick Links</h4>
@@ -323,50 +330,47 @@
         </div>
         <div>
           <h4>Business Hours</h4>
-          <p>Mon – Fri: 8:00 AM – 6:00 PM</p>
-          <p>Saturday: 9:00 AM – 4:00 PM</p>
+          <p style="margin-bottom: 6px;">Mon – Fri: 8:00 AM – 6:00 PM</p>
+          <p style="margin-bottom: 6px;">Saturday: 9:00 AM – 4:00 PM</p>
           <p>Sunday: Closed</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved. Serving Dallas-Fort Worth, TX.</p>
+        <p>© 2026 Sparkle &amp; Shine Cleaning Services. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Sticky mobile CTA -->
+  <a href="quote.html" class="btn btn-primary sticky-cta">Get a Quote</a>
+
   <script>
-    // Navbar scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Mobile menu
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Pause Ken Burns / particles when hero is out of view (performance)
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // Pause hero animation when off-screen
     const hero = document.getElementById('hero');
     const heroBg = document.querySelector('.hero-bg img');
-    const particles = document.querySelector('.hero-particles');
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (heroBg) heroBg.style.animationPlayState = 'running';
-            if (particles) particles.style.animationPlayState = 'running';
-          } else {
-            if (heroBg) heroBg.style.animationPlayState = 'paused';
-            if (particles) particles.style.animationPlayState = 'paused';
-          }
+    if ('IntersectionObserver' in window && heroBg) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          heroBg.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
         });
-      }, { threshold: 0.1 });
-      observer.observe(hero);
+      }, { threshold: 0.1 }).observe(hero);
     }
   </script>
 </body>
