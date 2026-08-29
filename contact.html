@@ -3,54 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Sparkle & Shine Cleaning - Dallas Fort Worth</title>
+  <title>Contact Us | Sparkle & Shine Cleaning — Dallas-Fort Worth</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header class="navbar scrolled" id="navbar">
     <div class="container nav-inner">
       <div class="brand">Sparkle <span>&</span> Shine</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</div>
       <nav class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="quote.html">Get a Quote</a>
         <a href="contact.html" class="active">Contact</a>
-        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Get a Quote</a>
       </nav>
     </div>
   </header>
 
-  <section class="section" style="padding-top: 140px;">
+  <section class="page-hero">
     <div class="container">
-      <div class="section-header">
-        <h2>Contact Sparkle & Shine</h2>
-        <p class="section-subtitle">We're here to help with all your cleaning needs across the Dallas-Fort Worth Metroplex.</p>
-      </div>
+      <h1>Contact Sparkle &amp; Shine</h1>
+      <p class="section-subtitle">Email is the best way to reach us. We typically respond within one business day.</p>
+    </div>
+  </section>
 
-      <div class="why-grid" style="max-width: 800px; margin: 0 auto;">
-        <div class="why-card">
-          <div class="why-icon">📍</div>
-          <h3>Service Area</h3>
-          <p>Dallas-Fort Worth Metroplex<br>Based in Plano, TX</p>
+  <section class="section">
+    <div class="container">
+      <div class="contact-email-block">
+        <a href="mailto:sparkandshine009@gmail.com" class="email-display">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          sparkandshine009@gmail.com
+        </a>
+        <div style="margin-top: 12px;">
+          <a href="quote.html" class="btn btn-primary">Request a Quote Online</a>
         </div>
-        <div class="why-card">
-          <div class="why-icon">📞</div>
-          <h3>Phone</h3>
-          <p><a href="tel:+14695550173">(469) 555-0173</a></p>
+        <div class="why-grid" style="max-width: 640px; margin: 48px auto 0; text-align: left;">
+          <div class="why-card" style="text-align: center;">
+            <h3>Service Area</h3>
+            <p>Dallas-Fort Worth Metroplex<br>Based in Plano, TX</p>
+          </div>
+          <div class="why-card" style="text-align: center;">
+            <h3>Business Hours</h3>
+            <p>Mon–Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 4:00 PM<br>Sun: Closed</p>
+          </div>
         </div>
-        <div class="why-card">
-          <div class="why-icon">✉️</div>
-          <h3>Email</h3>
-          <p><a href="mailto:sparkandshine009@gmail.com">sparkandshine009@gmail.com</a></p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
       </div>
     </div>
   </section>
@@ -60,15 +60,13 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Sparkle <span>&</span> Shine</div>
-          <p>Premium cleaning services across the Dallas-Fort Worth Metroplex.</p>
-          <p style="margin-top: 12px;"><strong>Phone:</strong> <a href="tel:+14695550173">(469) 555-0173</a></p>
-          <p style="margin-top: 8px;"><strong>Email:</strong> <a href="mailto:sparkandshine009@gmail.com">sparkandshine009@gmail.com</a></p>
+          <p style="margin-bottom: 12px;">Premium cleaning across the DFW Metroplex.</p>
+          <p><a href="mailto:sparkandshine009@gmail.com" style="color: var(--primary);">sparkandshine009@gmail.com</a></p>
         </div>
         <div>
           <h4>Quick Links</h4>
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
-          <a href="testimonials.html">Testimonials</a>
           <a href="quote.html">Get a Quote</a>
         </div>
         <div>
@@ -78,23 +76,24 @@
           <a href="commercial.html">Commercial</a>
         </div>
         <div>
-          <h4>Contact</h4>
-          <p>Serving DFW · Plano, TX</p>
+          <h4>Hours</h4>
+          <p>Mon–Fri 8am–6pm</p>
+          <p>Sat 9am–4pm · Sun Closed</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+        <p>© 2026 Sparkle &amp; Shine Cleaning Services. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <a href="quote.html" class="btn btn-primary sticky-cta">Get a Quote</a>
 
   <script>
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
   </script>
 </body>
 </html>

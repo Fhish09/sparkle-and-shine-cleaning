@@ -3,84 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get a Free Quote | Sparkle & Shine Cleaning - Dallas Fort Worth</title>
+  <title>Get a Free Quote | Sparkle & Shine Cleaning — Dallas-Fort Worth</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    .quote-form-card {
-      max-width: 680px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: var(--shadow-lg);
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--secondary);
-      font-size: 0.95rem;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-      background: #f8fafc;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: white;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 600px) {
-      .form-row { grid-template-columns: 1fr; }
-      .quote-form-card { padding: 28px 20px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header class="navbar scrolled" id="navbar">
     <div class="container nav-inner">
       <div class="brand">Sparkle <span>&</span> Shine</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <div class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</div>
       <nav class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="quote.html" class="active">Get a Quote</a>
         <a href="index.html#contact">Contact</a>
-        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Book Now</a>
+        <a href="quote.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 0.9rem;">Get a Quote</a>
       </nav>
     </div>
   </header>
 
-  <section class="section" style="padding-top: 140px; background: var(--bg-light);">
+  <section class="page-hero">
     <div class="container">
-      <div class="section-header">
-        <h2>Get a Free Quote</h2>
-        <p class="section-subtitle">Tell us about your space and we’ll get back to you quickly with a free, no-obligation quote.</p>
-      </div>
+      <h1>Get a Free Quote</h1>
+      <p class="section-subtitle">Tell us about your space. We’ll reply by email with a free, no-obligation quote.</p>
+    </div>
+  </section>
 
+  <section class="section" style="padding-top: 40px; background: var(--bg-light);">
+    <div class="container">
       <div class="quote-form-card">
-        <form action="thank-you.html" method="get">
+        <form action="https://formsubmit.co/sparkandshine009@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Quote Request — Sparkle & Shine">
+          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="hidden" name="_captcha" value="false">
+
           <div class="form-row">
             <div class="form-group">
               <label>Full Name *</label>
@@ -92,15 +50,9 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Phone Number *</label>
-              <input type="tel" name="phone" required placeholder="(469) 555-0000">
-            </div>
-            <div class="form-group">
-              <label>ZIP Code</label>
-              <input type="text" name="zip" placeholder="75024">
-            </div>
+          <div class="form-group">
+            <label>ZIP Code</label>
+            <input type="text" name="zip" placeholder="75024">
           </div>
 
           <div class="form-group">
@@ -143,47 +95,33 @@
               <label>Bedrooms</label>
               <select name="bedrooms">
                 <option value="">Select</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5+</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
               </select>
             </div>
             <div class="form-group">
               <label>Bathrooms</label>
               <select name="bathrooms">
                 <option value="">Select</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4+</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Preferred Date</label>
-              <input type="date" name="date">
-            </div>
-            <div class="form-group">
-              <label>Preferred Time</label>
-              <select name="time">
-                <option value="">Select</option>
-                <option>Morning (8am – 12pm)</option>
-                <option>Afternoon (12pm – 4pm)</option>
-                <option>Evening (4pm – 7pm)</option>
+                <option>1</option><option>2</option><option>3</option><option>4+</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Additional Notes</label>
-            <textarea name="notes" rows="4" placeholder="Anything we should know?"></textarea>
+            <label>Preferred Date</label>
+            <input type="date" name="date">
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Submit Quote Request</button>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" rows="4" placeholder="Anything we should know about your space or schedule?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">Submit Quote Request</button>
+          <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
+            We’ll respond to your email shortly. Or write us directly at
+            <a href="mailto:sparkandshine009@gmail.com" style="color: var(--primary);">sparkandshine009@gmail.com</a>
+          </p>
         </form>
       </div>
     </div>
@@ -194,9 +132,8 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Sparkle <span>&</span> Shine</div>
-          <p>Premium cleaning services across the Dallas-Fort Worth Metroplex.</p>
-          <p style="margin-top: 12px;"><strong>Phone:</strong> <a href="tel:+14695550173">(469) 555-0173</a></p>
-          <p style="margin-top: 8px;"><strong>Email:</strong> <a href="mailto:sparkandshine009@gmail.com">sparkandshine009@gmail.com</a></p>
+          <p style="margin-bottom: 12px;">Premium cleaning across the DFW Metroplex.</p>
+          <p><a href="mailto:sparkandshine009@gmail.com" style="color: var(--primary);">sparkandshine009@gmail.com</a></p>
         </div>
         <div>
           <h4>Quick Links</h4>
@@ -212,23 +149,24 @@
           <a href="commercial.html">Commercial</a>
         </div>
         <div>
-          <h4>Contact</h4>
-          <p>Serving DFW · Plano, TX</p>
+          <h4>Hours</h4>
+          <p>Mon–Fri 8am–6pm</p>
+          <p>Sat 9am–4pm · Sun Closed</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
+        <p>© 2026 Sparkle &amp; Shine Cleaning Services. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <a href="quote.html" class="btn btn-primary sticky-cta">Get a Quote</a>
 
   <script>
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
   </script>
 </body>
 </html>
