@@ -183,14 +183,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Sparkle &amp; Shine Cleaning Services. All rights reserved.</p>
+        <p>© 2026 Sparkle & Shine Cleaning Services. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <a href="quote.html" class="btn btn-primary sticky-cta">Get a Quote</a>
 
-  <!-- Firebase SDK (compat for simple static sites) -->
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
   <script src="js/firebase-config.js"></script>
@@ -201,24 +200,17 @@
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Init Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
     const form = document.getElementById('quote-form');
     const submitBtn = document.getElementById('submit-btn');
     const statusEl = document.getElementById('form-status');
+    const BUSINESS = 'sparkandshine009@gmail.com';
 
     function showStatus(type, message) {
       statusEl.className = 'form-status ' + type;
       statusEl.textContent = message;
-    }
-
-    function isConfigReady() {
-      return firebaseConfig.apiKey &&
-        firebaseConfig.apiKey !== 'YOUR_API_KEY' &&
-        firebaseConfig.projectId &&
-        firebaseConfig.projectId !== 'YOUR_PROJECT_ID';
     }
 
     form.addEventListener('submit', async (e) => {
@@ -227,14 +219,16 @@
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const service = document.getElementById('service').value;
+      const zip = document.getElementById('zip').value.trim() || '';
+      const address = document.getElementById('address').value.trim() || '';
+      const property = document.getElementById('property').value || '';
+      const bedrooms = document.getElementById('bedrooms').value || '';
+      const bathrooms = document.getElementById('bathrooms').value || '';
+      const preferredDate = document.getElementById('date').value || '';
+      const message = document.getElementById('message').value.trim() || '';
 
       if (!name || !email || !service) {
         showStatus('error', 'Please fill in name, email, and type of cleaning.');
-        return;
-      }
-
-      if (!isConfigReady()) {
-        showStatus('error', 'Firebase is not configured yet. Open js/firebase-config.js and paste your Firebase web app keys.');
         return;
       }
 
@@ -245,65 +239,68 @@
       const payload = {
         name,
         email,
-        zip: document.getElementById('zip').value.trim() || '',
-        address: document.getElementById('address').value.trim() || '',
+        zip,
+        address,
         service,
-        property: document.getElementById('property').value || '',
-        bedrooms: document.getElementById('bedrooms').value || '',
-        bathrooms: document.getElementById('bathrooms').value || '',
-        preferredDate: document.getElementById('date').value || '',
-        message: document.getElementById('message').value.trim() || '',
+        property,
+        bedrooms,
+        bathrooms,
+        preferredDate,
+        message,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         source: 'website-quote-form'
       };
 
       try {
-        // 1) Save quote request
-        await db.collection(QUOTES_COLLECTION).add(payload);
-
-        // 2) Optional: queue for "Trigger Email" extension (collection "mail")
-        //    Install the extension in Firebase Console if you want inbox alerts.
+        // 1) Save to Firebase Firestore (backup / admin view)
         try {
-          await db.collection('mail').add({
-            to: [BUSINESS_EMAIL],
-            replyTo: email,
-            message: {
-              subject: 'New Quote Request — ' + name + ' (' + service + ')',
-              text:
-                'New quote request from the website:\n\n' +
-                'Name: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                'Service: ' + service + '\n' +
-                'Property: ' + (payload.property || '—') + '\n' +
-                'ZIP: ' + (payload.zip || '—') + '\n' +
-                'Address: ' + (payload.address || '—') + '\n' +
-                'Bedrooms: ' + (payload.bedrooms || '—') + '\n' +
-                'Bathrooms: ' + (payload.bathrooms || '—') + '\n' +
-                'Preferred date: ' + (payload.preferredDate || '—') + '\n\n' +
-                'Message:\n' + (payload.message || '(none)'),
-              html:
-                '<h2>New Quote Request</h2>' +
-                '<p><strong>Name:</strong> ' + name + '</p>' +
-                '<p><strong>Email:</strong> ' + email + '</p>' +
-                '<p><strong>Service:</strong> ' + service + '</p>' +
-                '<p><strong>Property:</strong> ' + (payload.property || '—') + '</p>' +
-                '<p><strong>ZIP:</strong> ' + (payload.zip || '—') + '</p>' +
-                '<p><strong>Address:</strong> ' + (payload.address || '—') + '</p>' +
-                '<p><strong>Bedrooms / Bathrooms:</strong> ' + (payload.bedrooms || '—') + ' / ' + (payload.bathrooms || '—') + '</p>' +
-                '<p><strong>Preferred date:</strong> ' + (payload.preferredDate || '—') + '</p>' +
-                '<p><strong>Message:</strong><br>' + (payload.message || '(none)').replace(/\n/g, '<br>') + '</p>'
-            }
-          });
-        } catch (mailErr) {
-          // Quote was saved; email extension may not be installed — ignore
-          console.warn('Mail document not written (extension optional):', mailErr);
+          await db.collection(QUOTES_COLLECTION || 'quotes').add(payload);
+        } catch (fbErr) {
+          console.warn('Firestore save failed (continuing to email):', fbErr);
         }
 
-        // 3) Go to thank-you page (no FormSubmit redirect)
+        // 2) Actually send email to your Gmail (FormSubmit AJAX — no redirect page)
+        const emailRes = await fetch('https://formsubmit.co/ajax/' + BUSINESS, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _replyto: email,
+            _subject: 'New Quote Request — ' + name + ' (' + service + ')',
+            service: service,
+            property: property || '—',
+            zip: zip || '—',
+            address: address || '—',
+            bedrooms: bedrooms || '—',
+            bathrooms: bathrooms || '—',
+            preferredDate: preferredDate || '—',
+            message: message || '(none)',
+            _template: 'table'
+          })
+        });
+
+        const emailData = await emailRes.json().catch(() => ({}));
+
+        if (!emailRes.ok) {
+          // First-time FormSubmit often needs email activation
+          const hint = (emailData && emailData.message) ? emailData.message : 'Email service error';
+          throw new Error(hint);
+        }
+
+        // 3) Thank-you page
         window.location.href = 'thank-you.html';
       } catch (err) {
         console.error(err);
-        showStatus('error', 'Something went wrong. Please try again or email sparkandshine009@gmail.com directly.');
+        const msg = (err && err.message) ? String(err.message) : '';
+        if (/confirm|activat|verify/i.test(msg)) {
+          showStatus('error', 'Check sparkandshine009@gmail.com inbox (and Spam) for a FormSubmit activation email. Click the link once, then try the form again.');
+        } else {
+          showStatus('error', 'Could not send email yet. Check Spam for a FormSubmit activation link, or email us directly at sparkandshine009@gmail.com');
+        }
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Quote Request';
       }
