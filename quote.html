@@ -6,6 +6,33 @@
   <title>Get a Free Quote | Sparkle & Shine Cleaning — Dallas-Fort Worth</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    .form-status.error {
+      display: block;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+    .form-status.loading {
+      display: block;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border: 1px solid rgba(91, 138, 114, 0.25);
+    }
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -34,36 +61,32 @@
   <section class="section" style="padding-top: 40px; background: var(--bg-light);">
     <div class="container">
       <div class="quote-form-card">
-        <form action="https://formsubmit.co/sparkandshine009@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New Quote Request — Sparkle & Shine">
-          <input type="hidden" name="_next" value="thank-you.html">
-          <input type="hidden" name="_captcha" value="false">
-
+        <form id="quote-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label>Full Name *</label>
-              <input type="text" name="name" required placeholder="Your full name">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" autocomplete="name">
             </div>
             <div class="form-group">
-              <label>Email *</label>
-              <input type="email" name="email" required placeholder="you@example.com">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email">
             </div>
           </div>
 
           <div class="form-group">
-            <label>ZIP Code</label>
-            <input type="text" name="zip" placeholder="75024">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" name="zip" placeholder="75024" autocomplete="postal-code">
           </div>
 
           <div class="form-group">
-            <label>Address</label>
-            <input type="text" name="address" placeholder="Street address, city">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Street address, city" autocomplete="street-address">
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label>Type of Cleaning *</label>
-              <select name="service" required>
+              <label for="service">Type of Cleaning *</label>
+              <select id="service" name="service" required>
                 <option value="">Select a service</option>
                 <option>House Cleaning</option>
                 <option>Apartment Cleaning</option>
@@ -78,8 +101,8 @@
               </select>
             </div>
             <div class="form-group">
-              <label>Property Type</label>
-              <select name="property">
+              <label for="property">Property Type</label>
+              <select id="property" name="property">
                 <option value="">Select type</option>
                 <option>House</option>
                 <option>Apartment / Condo</option>
@@ -92,15 +115,15 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>Bedrooms</label>
-              <select name="bedrooms">
+              <label for="bedrooms">Bedrooms</label>
+              <select id="bedrooms" name="bedrooms">
                 <option value="">Select</option>
                 <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Bathrooms</label>
-              <select name="bathrooms">
+              <label for="bathrooms">Bathrooms</label>
+              <select id="bathrooms" name="bathrooms">
                 <option value="">Select</option>
                 <option>1</option><option>2</option><option>3</option><option>4+</option>
               </select>
@@ -108,18 +131,23 @@
           </div>
 
           <div class="form-group">
-            <label>Preferred Date</label>
-            <input type="date" name="date">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date">
           </div>
 
           <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" rows="4" placeholder="Anything we should know about your space or schedule?"></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Anything we should know about your space or schedule?"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">Submit Quote Request</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn" style="width: 100%; margin-top: 8px;">
+            Submit Quote Request
+          </button>
+
+          <div id="form-status" class="form-status" role="alert"></div>
+
           <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">
-            We’ll respond to your email shortly. Or write us directly at
+            Or write us directly at
             <a href="mailto:sparkandshine009@gmail.com" style="color: var(--primary);">sparkandshine009@gmail.com</a>
           </p>
         </form>
@@ -162,11 +190,124 @@
 
   <a href="quote.html" class="btn btn-primary sticky-cta">Get a Quote</a>
 
+  <!-- Firebase SDK (compat for simple static sites) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+
   <script>
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Init Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const form = document.getElementById('quote-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusEl = document.getElementById('form-status');
+
+    function showStatus(type, message) {
+      statusEl.className = 'form-status ' + type;
+      statusEl.textContent = message;
+    }
+
+    function isConfigReady() {
+      return firebaseConfig.apiKey &&
+        firebaseConfig.apiKey !== 'YOUR_API_KEY' &&
+        firebaseConfig.projectId &&
+        firebaseConfig.projectId !== 'YOUR_PROJECT_ID';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+
+      if (!name || !email || !service) {
+        showStatus('error', 'Please fill in name, email, and type of cleaning.');
+        return;
+      }
+
+      if (!isConfigReady()) {
+        showStatus('error', 'Firebase is not configured yet. Open js/firebase-config.js and paste your Firebase web app keys.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      showStatus('loading', 'Submitting your request…');
+
+      const payload = {
+        name,
+        email,
+        zip: document.getElementById('zip').value.trim() || '',
+        address: document.getElementById('address').value.trim() || '',
+        service,
+        property: document.getElementById('property').value || '',
+        bedrooms: document.getElementById('bedrooms').value || '',
+        bathrooms: document.getElementById('bathrooms').value || '',
+        preferredDate: document.getElementById('date').value || '',
+        message: document.getElementById('message').value.trim() || '',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        source: 'website-quote-form'
+      };
+
+      try {
+        // 1) Save quote request
+        await db.collection(QUOTES_COLLECTION).add(payload);
+
+        // 2) Optional: queue for "Trigger Email" extension (collection "mail")
+        //    Install the extension in Firebase Console if you want inbox alerts.
+        try {
+          await db.collection('mail').add({
+            to: [BUSINESS_EMAIL],
+            replyTo: email,
+            message: {
+              subject: 'New Quote Request — ' + name + ' (' + service + ')',
+              text:
+                'New quote request from the website:\n\n' +
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Property: ' + (payload.property || '—') + '\n' +
+                'ZIP: ' + (payload.zip || '—') + '\n' +
+                'Address: ' + (payload.address || '—') + '\n' +
+                'Bedrooms: ' + (payload.bedrooms || '—') + '\n' +
+                'Bathrooms: ' + (payload.bathrooms || '—') + '\n' +
+                'Preferred date: ' + (payload.preferredDate || '—') + '\n\n' +
+                'Message:\n' + (payload.message || '(none)'),
+              html:
+                '<h2>New Quote Request</h2>' +
+                '<p><strong>Name:</strong> ' + name + '</p>' +
+                '<p><strong>Email:</strong> ' + email + '</p>' +
+                '<p><strong>Service:</strong> ' + service + '</p>' +
+                '<p><strong>Property:</strong> ' + (payload.property || '—') + '</p>' +
+                '<p><strong>ZIP:</strong> ' + (payload.zip || '—') + '</p>' +
+                '<p><strong>Address:</strong> ' + (payload.address || '—') + '</p>' +
+                '<p><strong>Bedrooms / Bathrooms:</strong> ' + (payload.bedrooms || '—') + ' / ' + (payload.bathrooms || '—') + '</p>' +
+                '<p><strong>Preferred date:</strong> ' + (payload.preferredDate || '—') + '</p>' +
+                '<p><strong>Message:</strong><br>' + (payload.message || '(none)').replace(/\n/g, '<br>') + '</p>'
+            }
+          });
+        } catch (mailErr) {
+          // Quote was saved; email extension may not be installed — ignore
+          console.warn('Mail document not written (extension optional):', mailErr);
+        }
+
+        // 3) Go to thank-you page (no FormSubmit redirect)
+        window.location.href = 'thank-you.html';
+      } catch (err) {
+        console.error(err);
+        showStatus('error', 'Something went wrong. Please try again or email sparkandshine009@gmail.com directly.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Quote Request';
+      }
+    });
   </script>
 </body>
 </html>

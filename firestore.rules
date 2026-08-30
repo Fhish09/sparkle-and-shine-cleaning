@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Anyone can CREATE a quote (form submissions)
+    // Only you (Firebase console / authenticated admin) can read/list/update/delete
+    match /quotes/{docId} {
+      allow create: if
+        request.resource.data.keys().hasAll(['name', 'email', 'service', 'createdAt']) &&
+        request.resource.data.name is string &&
+        request.resource.data.name.size() > 0 &&
+        request.resource.data.name.size() < 120 &&
+        request.resource.data.email is string &&
+        request.resource.data.email.size() < 120 &&
+        request.resource.data.service is string &&
+        request.resource.data.service.size() < 80;
+      allow read, update, delete: if false;
+    }
+
+    // Used by Firebase "Trigger Email" extension (if you install it)
+    match /mail/{docId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+  }
+}
