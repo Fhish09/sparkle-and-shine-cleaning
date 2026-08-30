@@ -1,8 +1,7 @@
 /**
- * Firebase configuration — Sparkle & Shine
+ * Firebase — Sparkle & Shine
  * Project: sparkle-and-shine-testimonials
  */
-
 const firebaseConfig = {
   apiKey: "AIzaSyAL17ZEiWJWltjDJOpDoSnCpmFOPzQCidY",
   authDomain: "sparkle-and-shine-testimonials.firebaseapp.com",
@@ -12,8 +11,14 @@ const firebaseConfig = {
   appId: "1:957259216547:web:708cb1df556474fe303116"
 };
 
-// Collection where quote requests are stored
 const QUOTES_COLLECTION = "quotes";
-
-// Business inbox for optional Trigger Email extension
 const BUSINESS_EMAIL = "sparkandshine009@gmail.com";
+
+/**
+ * Web3Forms — sends real email to your Gmail (free)
+ * 1. Go to https://web3forms.com
+ * 2. Enter: sparkandshine009@gmail.com
+ * 3. Copy your Access Key
+ * 4. Paste it below between the quotes
+ */
+const WEB3FORMS_ACCESS_KEY = "PASTE_YOUR_WEB3FORMS_KEY_HERE";
