@@ -54,7 +54,7 @@
   <section class="page-hero">
     <div class="container">
       <h1>Get a Free Quote</h1>
-      <p class="section-subtitle">Tell us about your space. We’ll reply by email — available 24/7.</p>
+      <p class="section-subtitle">Tell us about your space. We’ll get back to you by email — available 24/7.</p>
     </div>
   </section>
 
@@ -206,7 +206,6 @@
     const form = document.getElementById('quote-form');
     const submitBtn = document.getElementById('submit-btn');
     const statusEl = document.getElementById('form-status');
-    const BUSINESS = 'sparkandshine009@gmail.com';
 
     function showStatus(type, message) {
       statusEl.className = 'form-status ' + type;
@@ -219,13 +218,6 @@
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const service = document.getElementById('service').value;
-      const zip = document.getElementById('zip').value.trim() || '';
-      const address = document.getElementById('address').value.trim() || '';
-      const property = document.getElementById('property').value || '';
-      const bedrooms = document.getElementById('bedrooms').value || '';
-      const bathrooms = document.getElementById('bathrooms').value || '';
-      const preferredDate = document.getElementById('date').value || '';
-      const message = document.getElementById('message').value.trim() || '';
 
       if (!name || !email || !service) {
         showStatus('error', 'Please fill in name, email, and type of cleaning.');
@@ -236,71 +228,26 @@
       submitBtn.textContent = 'Sending…';
       showStatus('loading', 'Submitting your request…');
 
-      const payload = {
-        name,
-        email,
-        zip,
-        address,
-        service,
-        property,
-        bedrooms,
-        bathrooms,
-        preferredDate,
-        message,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        source: 'website-quote-form'
-      };
-
       try {
-        // 1) Save to Firebase Firestore (backup / admin view)
-        try {
-          await db.collection(QUOTES_COLLECTION || 'quotes').add(payload);
-        } catch (fbErr) {
-          console.warn('Firestore save failed (continuing to email):', fbErr);
-        }
-
-        // 2) Actually send email to your Gmail (FormSubmit AJAX — no redirect page)
-        const emailRes = await fetch('https://formsubmit.co/ajax/' + BUSINESS, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            _replyto: email,
-            _subject: 'New Quote Request — ' + name + ' (' + service + ')',
-            service: service,
-            property: property || '—',
-            zip: zip || '—',
-            address: address || '—',
-            bedrooms: bedrooms || '—',
-            bathrooms: bathrooms || '—',
-            preferredDate: preferredDate || '—',
-            message: message || '(none)',
-            _template: 'table'
-          })
+        await db.collection('quotes').add({
+          name,
+          email,
+          zip: document.getElementById('zip').value.trim() || '',
+          address: document.getElementById('address').value.trim() || '',
+          service,
+          property: document.getElementById('property').value || '',
+          bedrooms: document.getElementById('bedrooms').value || '',
+          bathrooms: document.getElementById('bathrooms').value || '',
+          preferredDate: document.getElementById('date').value || '',
+          message: document.getElementById('message').value.trim() || '',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          source: 'website-quote-form'
         });
 
-        const emailData = await emailRes.json().catch(() => ({}));
-
-        if (!emailRes.ok) {
-          // First-time FormSubmit often needs email activation
-          const hint = (emailData && emailData.message) ? emailData.message : 'Email service error';
-          throw new Error(hint);
-        }
-
-        // 3) Thank-you page
         window.location.href = 'thank-you.html';
       } catch (err) {
         console.error(err);
-        const msg = (err && err.message) ? String(err.message) : '';
-        if (/confirm|activat|verify/i.test(msg)) {
-          showStatus('error', 'Check sparkandshine009@gmail.com inbox (and Spam) for a FormSubmit activation email. Click the link once, then try the form again.');
-        } else {
-          showStatus('error', 'Could not send email yet. Check Spam for a FormSubmit activation link, or email us directly at sparkandshine009@gmail.com');
-        }
+        showStatus('error', 'Could not submit. Check Firestore rules, then try again.');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Quote Request';
       }
