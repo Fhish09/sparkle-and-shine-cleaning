@@ -15,10 +15,6 @@ const QUOTES_COLLECTION = "quotes";
 const BUSINESS_EMAIL = "sparkandshine009@gmail.com";
 
 /**
- * Web3Forms — sends real email to your Gmail (free)
- * 1. Go to https://web3forms.com
- * 2. Enter: sparkandshine009@gmail.com
- * 3. Copy your Access Key
- * 4. Paste it below between the quotes
+ * Web3Forms — sends quote emails to sparkandshine009@gmail.com
  */
-const WEB3FORMS_ACCESS_KEY = "PASTE_YOUR_WEB3FORMS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "ddb47529-a3cc-4fa1-a049-477e0c41dbff";
